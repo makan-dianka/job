@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+
+{%  block content %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mt-result">
+            <form method="POST" action=""> {% csrf_token %}
+                <input name="keyword" id="research" class="form-control" required placeholder="Que cherchez-vous ? ex: php"> <br />
+                <button class="btn btn-success research-btn" type="submit">Rechercher</button>
+            </form>  <br />  <br /> <hr class="hr"> <br />  <br />
+
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border sp" style="width: 5rem; height: 5rem;" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+            <h1 class="text-success">Resultats !</h1> <br /> 
+            {% for emploi in data %}
+                
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                       Publié le {{ emploi.publish }}
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">{{ emploi.intitule }}</h2>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ emploi.entreprise }} | {{ emploi.lieu }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ emploi.contrat }}, {{ emploi.dure }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ emploi.salaire }} {{ emploi.dure }}</h6> <br />
+                        <p class="card-text">{{ emploi.desc }}</p>
+                        <a href="{{ emploi.link }}" class="btn btn-success research-btn" target="_blank">Postuler</a>
+                    </div>
+                </div>
+                <br />
+                
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- {{ data }} -->
+{% endblock %}

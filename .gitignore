@@ -1,0 +1,5 @@
+emploi/__pycache__/*
+research/__pycache__/*
+research/migrations/__pycache__/*
+logs/*
+db.sqlite3

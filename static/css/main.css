@@ -1,0 +1,29 @@
+body{
+    background-color: whitesmoke;
+}
+
+.research-btn {
+    float: right;
+}
+
+.sp {
+    display: none;
+}
+
+.mt{
+    margin-top: 200px;
+}
+
+.mt-result{
+    margin-top: 100px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+    color: white;
+    text-align: center;
+  }

@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-4 mt">
+
+            <h1 class="text-success text-center">Lancer une recherche !</h1> <br /> 
+            <form method="POST" action=""> {% csrf_token %}
+                <input name="keyword" id="research" class="form-control" required placeholder="Que cherchez-vous ? ex: php, java, python, c++"> <br />
+                <button class="btn btn-success research-btn home-btn" type="submit">Rechercher</button>
+                <br /> <br />
+
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border sp" style="width: 5rem; height: 5rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
