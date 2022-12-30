@@ -1,0 +1,11 @@
+./.venv
+./db.sqlite3
+./README.md
+./emploi/__pycache__/*
+./logs/*.log
+./research/__pycache__/*
+./research/migrations/__pycache__/*
+./.env
+./docker-compose.yml
+./Dockerfile
+./staticfiles/*
