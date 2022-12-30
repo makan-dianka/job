@@ -4,3 +4,4 @@ research/migrations/__pycache__/*
 logs/*.log
 db.sqlite3
 .venv
+.env
