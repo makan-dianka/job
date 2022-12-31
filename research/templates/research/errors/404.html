@@ -1,0 +1,17 @@
+{% extends 'layout/base.html'  %}
+
+{% block title %} <title>Page non trouvé</title> {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 status_code">
+            <h4>[ ERROR_404 ]</h4> 
+            <p> Cette page n'existe pas</p> <hr />
+            <p><a href="/"><< HomePage</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

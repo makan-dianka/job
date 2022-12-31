@@ -18,6 +18,14 @@ body{
     margin-top: 100px;
 }
 
+.status_code{
+    margin-top: 200px;
+}
+
+.status_code h4{
+    color: red;
+}
+
 .footer {
     position: fixed;
     left: 0;

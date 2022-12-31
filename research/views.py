@@ -10,3 +10,11 @@ def index(request):
         return render(request, 'research/result.html', {"data" : emploi})
 
     return render(request, 'research/index.html')
+
+
+
+def handler404(request, exception):
+    return render(request, "research/errors/404.html", status=404)
+
+def handler500(request):
+    return render(request, "research/errors/500.html", status=500)
