@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/var/www/web
     ports:
-      - 80:8000
+      - 8001:8000
     tty: true
     depends_on:
       - db
