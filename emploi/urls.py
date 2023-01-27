@@ -23,7 +23,7 @@ handler404 = "research.views.handler404"
 handler500 = "research.views.handler500"
 
 urlpatterns = [
-    path('admin_emploi/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include("research.urls")),
 ]
 
