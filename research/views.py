@@ -11,7 +11,8 @@ def index(request):
 
     return render(request, 'research/index.html')
 
-
+def alert(request):
+    return render(request, "research/alert.html")
 
 def handler404(request, exception):
     return render(request, "research/errors/404.html", status=404)
