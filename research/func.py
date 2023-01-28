@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import logging
+import random
 
 log = logging.getLogger('log')
 
@@ -43,7 +44,7 @@ def data(q):
 
         for box in content:
             data_json = {}
-        
+
             h = box.find('div', class_="h-full")
             h_a = h.find('a')
             details = h.find('div', class_="gap-2")
@@ -65,7 +66,6 @@ def data(q):
                 data_json['lieu'] = span[2].text
                 data_json['dure'] = span[0].text
             data_json['publish'] = publish_date.text
-            
 
             try:
                 exist = span[2]
@@ -77,3 +77,17 @@ def data(q):
             data_json['link'] = host+link
             element.append(data_json)
         return element
+
+def code(len_password):
+    pwd = "" 
+    mot_cles = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+        '&', '%', '!', '?'
+    ]
+
+    for _ in range(len_password):
+        len_pwd5 = random.choice(mot_cles)
+        pwd += len_pwd5
+    return pwd
