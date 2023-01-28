@@ -6,6 +6,10 @@ body{
     float: right;
 }
 
+.region{
+    margin-bottom: 30px;
+}
+
 .sp {
     display: none;
 }
