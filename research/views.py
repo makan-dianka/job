@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from . import func
+from . models import UserEmail
 
 # Create your views here.
 def index(request):
@@ -12,7 +12,19 @@ def index(request):
     return render(request, 'research/index.html')
 
 def alert(request):
-    return render(request, "research/alert.html")
+    context = {}
+    if request.method=="POST":
+        email = request.POST.get("email")
+        name = request.POST.get('name')
+        code = func.code(8)
+        useremail = UserEmail(email=email, name=name, code=code, valid=False)
+        try:
+            useremail.save()
+        except:
+            message = "Cet email exist déjà"
+            context["message"] = message
+
+    return render(request, "research/alert.html", context)
 
 def handler404(request, exception):
     return render(request, "research/errors/404.html", status=404)
