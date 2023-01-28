@@ -39,15 +39,19 @@ def confirm_email(request, base64):
     except:
         return handler404(request, exception=404)
     else:
-        if request.method=="POST":
-            code = request.POST.get("code")
-            if user.code == code:
-                user.valid=True
-                user.save()
-                context['success'] = "Mail validé !"
-            else:
-                message = 'Code incorrect'
-                context['message'] = message
+        if user.valid == True:
+            context['valided'] = "Email déjà validé"
+        else:
+            if request.method=="POST":
+                code = request.POST.get("code")
+                clean_code = code.strip()
+                if user.code == clean_code:
+                    user.valid=True
+                    user.save()
+                    context['success'] = "Mail validé !"
+                else:
+                    message = 'Code incorrect'
+                    context['message'] = message
         context['username'] = user.name
     return render(request, "research/confirm_email.html", context)
 
