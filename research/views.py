@@ -55,6 +55,9 @@ def confirm_email(request, base64):
         context['username'] = user.name
     return render(request, "research/confirm_email.html", context)
 
+def preference(request):
+    return render(request, "research/preference.html")
+
 def handler404(request, exception):
     return render(request, "research/errors/404.html", status=404)
 
