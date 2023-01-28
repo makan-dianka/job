@@ -46,7 +46,7 @@ def confirm_email(request, base64):
                 user.save()
                 context['success'] = "Mail validé !"
             else:
-                message = 'Code incorect'
+                message = 'Code incorrect'
                 context['message'] = message
         context['username'] = user.name
     return render(request, "research/confirm_email.html", context)
