@@ -1,9 +1,13 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/base.html' %} {% load crispy_forms_tags %}
 
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-4 mt">
-            <h1 class="text-center">Préference</h1> <br />
+            <h1 class="text-center">Préference</h1> <br /> 
+            <form method="POST" action=""> {% csrf_token %}
+                {{ form|crispy }} <br />
+                <button type="submit" class="btn btn-primary research-btn">Continuer</button>
+            </form>
         </div>
     </div>
 {% endblock %}
