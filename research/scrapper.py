@@ -58,6 +58,7 @@ class HelloWork:
                     data_dict["minititre"] = h2.text.strip()
                     data_dict['detail'] = p.text.strip()
                     data_dict['date'] = date.text
+                    data_dict['link'] = link
 
                     data.append(data_dict)
 
