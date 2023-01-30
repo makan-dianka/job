@@ -94,13 +94,19 @@ if DEBUG:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.getenv('NAME'),
-            'USER': os.getenv('USER_DB'),
-            'PASSWORD': os.getenv('PASSWORD'),
-            'HOST': os.getenv('HOST'),
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'NAME': os.getenv('NAME'),
+    #         'USER': os.getenv('USER_DB'),
+    #         'PASSWORD': os.getenv('PASSWORD'),
+    #         'HOST': os.getenv('HOST'),
+    #     }
+    # }
 
 
 # Password validation
