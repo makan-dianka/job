@@ -4,9 +4,10 @@
     <div class="row justify-content-center">
         <div class="col-md-4 mt">
 
-            <h1 class="text-success text-center">Lancer une recherche !</h1> <br /> 
+            <h1 class="text-success text-center">Mon emploi</h1> <br /> 
             <form method="POST" action=""> {% csrf_token %}
-                <input name="keyword" id="research" class="form-control" required placeholder="Que cherchez-vous ? ex: php, java, python, c++"> <br />
+                <input name="keyword" id="research" class="form-control" required placeholder="Que cherchez-vous ? Ex : développeur python"> <br />
+                <input name="location" id="research2" class="form-control" required placeholder="Vous cherchez dans quelle ville ? Ex :  Paris"> <br />
                 <button class="btn btn-success research-btn home-btn" type="submit">Rechercher</button>
                 <br /> <br />
 
