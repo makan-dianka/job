@@ -3,8 +3,13 @@ from . import func
 from . scrapper import HelloWork
 from . models import UserEmail, UserPreference
 from . forms import UserPreferenceForm
-from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.conf import settings
+import logging
+
+log = logging.getLogger('log')
 
 # Create your views here.
 def index(request):
@@ -31,9 +36,25 @@ def alert(request, id):
         try:
             useremail.save()
             user_id_base_64 = urlsafe_base64_encode(str(useremail.id).encode('utf-8'))
-            return redirect(f"/p/email-confirmation-{user_id_base_64}")
-        except:
-            message = "Cet email exist déjà"
+            host = request.META.get('HTTP_HOST')
+            info = {
+                'username' : name,
+                'code' : code,
+                'protocol' : 'http://',
+                'host' : host,
+                'path' : f'/p/email-confirmation-{user_id_base_64}'
+            }
+            template_email = render_to_string('research/email.html', info)
+            email = EmailMessage("Votre code de vérification", template_email, settings.EMAIL_HOST_USER, [email])
+            email.fail_silently = False
+            try:
+                email.send()
+                return redirect(f"/p/email-confirmation-{user_id_base_64}")
+            except Exception as e:
+                log.error(e)
+        except Exception as e:
+            log.error(e)
+            message = "Oups erreur inconnu. Il se peut que email exist déjà. Éssayer avec un autre email."
             context["message"] = message
 
     return render(request, "research/alert.html", context)
