@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from . import func
+from . scrapper import HelloWork
 from . models import UserEmail, UserPreference
 from . forms import UserPreferenceForm
 from django.utils.encoding import force_bytes
@@ -9,7 +10,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 def index(request):
     if request.method=="POST":
         keyword = request.POST.get("keyword")
-        emploi = func.data(keyword)
+        location = request.POST.get("location")
+        emploi = HelloWork().scrap(keyword, location)
         return render(request, 'research/result.html', {"data" : emploi})
 
     return render(request, 'research/index.html')
