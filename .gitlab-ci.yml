@@ -14,4 +14,4 @@ deploy_docker-compose:
   before_script:
     - chmod 400 $SSH_PRIVATE_KEY
   script:
-    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && git pull $ORIGIN && docker-compose --env-file .env up"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && git pull $ORIGIN && docker-compose restart"
