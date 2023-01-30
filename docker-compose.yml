@@ -9,8 +9,8 @@ services:
     ports:
       - 8002:8000
     tty: true
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - ALLOWED_HOSTS=${ALLOWED_HOSTS}
@@ -25,29 +25,29 @@ services:
       # sender mail credential
       - EMAIL_HOST_USER=${EMAIL_HOST_USER}
       - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
-  db:
-    image: mysql:8-debian
-    container_name: mysql_job
-    working_dir: /data
-    volumes:
-      - ./database:/data
-    ports:
-      - 2021:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=team
-      - MYSQL_USER_PASSWORD=team
-    command: --default-authentication-plugin=mysql_native_password
+  # db:
+  #   image: mysql:8-debian
+  #   container_name: mysql_job
+  #   working_dir: /data
+  #   volumes:
+  #     - ./database:/data
+  #   ports:
+  #     - 2021:3306
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #     - MYSQL_USER=team
+  #     - MYSQL_USER_PASSWORD=team
+  #   command: --default-authentication-plugin=mysql_native_password
 
-  phpmyadmin: 
-    image: phpmyadmin
-    container_name: phpmyadmin_job
-    working_dir: /phpmyadmin/data
-    volumes:
-      - ./phpmyadmin:/phpmyadmin/data
-    depends_on:
-      - db
-    ports:
-      - 8081:80
-    environment:
-      PMA_HOST: db
+  # phpmyadmin: 
+  #   image: phpmyadmin
+  #   container_name: phpmyadmin_job
+  #   working_dir: /phpmyadmin/data
+  #   volumes:
+  #     - ./phpmyadmin:/phpmyadmin/data
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - 8081:80
+  #   environment:
+  #     PMA_HOST: db
