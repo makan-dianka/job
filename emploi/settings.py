@@ -178,18 +178,30 @@ LOGGING = {
     },
     'handlers': {
         'mylog': {
-            'filename': os.path.join(BASE_DIR / 'logs/error.log'),
+            'filename': os.path.join(BASE_DIR / 'logs/mylog.log'),
             'class': 'logging.handlers.RotatingFileHandler',
             'maxBytes': 1024*4,
             'encoding' : 'utf8',
             'formatter' : 'verbose'
-        }
+        },
+    'file': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename' :  os.path.join(BASE_DIR, 'logs/debug.log'),
+        'formatter': 'verbose'
+        },
     },
+
     'loggers': {
         'log': {
             'handlers': ['mylog'],
             'propagate': True,
             'level' : 'DEBUG'
+        },
+    'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
         },
     }
 }
