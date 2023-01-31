@@ -14,7 +14,9 @@ deploy_docker-compose:
   before_script:
     - chmod 400 $SSH_PRIVATE_KEY
     - echo "[AFFICHAGE DU CONTENT]"
-    - ls
+    - ls -a ~/
+    - echo "[AFFICHAGE DU CONTENT SSH]"
+    - ls -a ~/.ssh
   script:
     - eval "$(ssh-agent -s)"
     - ssh-add ~/.ssh/gitlab_key
