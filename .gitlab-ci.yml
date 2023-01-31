@@ -16,4 +16,4 @@ deploy_docker-compose:
   script:
     # - eval "$(ssh-agent -s)"
     # - ssh-add "/root/.ssh/gitlab_key"
-    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && git pull $ORIGIN && docker-compose restart"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && git pull $ORIGIN master && docker-compose restart"
