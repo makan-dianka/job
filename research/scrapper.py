@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 
 class HelloWork:
     def __init__(self):
@@ -63,3 +64,12 @@ class HelloWork:
                     data.append(data_dict)
 
         return data
+
+
+def find_all_email(url):
+    res = requests.get(url)
+    if res.ok:
+        soup = BeautifulSoup(res.text, "html.parser")
+        emails = re.findall(r'[a-z0-9]+@\S+.com', str(soup))
+
+        return emails
