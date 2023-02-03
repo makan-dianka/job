@@ -14,4 +14,4 @@ deploy_docker-compose:
   before_script:
     - chmod 400 $SSH_PRIVATE_KEY
   script:
-    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && chmod 777 gitlab-ci.sh && ./gitlab-ci.sh && git pull $ORIGIN && docker-compose restart"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && chmod 777 gitlab-ci.sh && ./gitlab-ci.sh && git pull $ORIGIN master && docker-compose restart"
