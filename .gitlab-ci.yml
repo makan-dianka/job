@@ -15,4 +15,5 @@ deploy_docker-compose:
     - chmod 400 $SSH_PRIVATE_KEY
   script:
     - eval "$(ssh-agent -s)"
+    - ssh-add $SSH_PRIVATE_KEY
     - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST "cd ~/$DIR && git pull $ORIGIN && docker-compose restart"
