@@ -2,6 +2,11 @@ emploi/__pycache__/*
 research/__pycache__/*
 # research/migrations/__pycache__/*
 research/migrations/*
+
+emailing/__pycache__/*
+# research/migrations/__pycache__/*
+emailing/migrations/*
+
 logs/*.log
 db.sqlite3
 .venv

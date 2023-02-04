@@ -25,6 +25,7 @@ handler500 = "research.views.handler500"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("research.urls")),
+    path('emailing/', include("emailing.urls")),
 ]
 
 urlpatterns += (

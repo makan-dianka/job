@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'research.apps.ResearchConfig',
+    'emailing',
 
     'crispy_forms',
 ]
