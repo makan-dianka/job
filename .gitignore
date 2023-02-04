@@ -12,5 +12,5 @@ db.sqlite3
 .venv
 .env
 staticfiles/*
-static/admin
+# static/admin
 static/images/*.pdf
