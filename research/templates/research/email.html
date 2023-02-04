@@ -1,13 +1,22 @@
-Bonjour {{ username }}
-
-Merci pour votre inscription à notre newsletter !
-Notre objectif, c'est de vous aider dans votre recherche d'emploi.
-Veuillez confirmer votre adresse email. 
-
-Votre code est : {{ code }}
-
-Vous pouvez à tout moment vous rendre {{ protocol }}{{ host }}{{ path }} pour confirmer votre email.
-
-Si vous recevez ce message par erreur, veuillez l'ignorer.
-
-Cordialement.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<body>
+    <h1>Bonjour {{ username }}</h1>
+    <p>
+        Merci pour votre inscription à notre newsletter !
+        Notre objectif, c'est de vous aider dans votre recherche d'emploi.
+        Veuillez confirmer votre adresse email. 
+    </p>
+    <h2>Votre code est > <mark>{{ code }}</mark></h2>
+    <p>Vous pouvez à tout moment vous rendre <a href="{{ protocol }}{{ host }}{{ path }}">{{ protocol }}{{ host }}{{ path }}</a> pour confirmer votre email.</p>
+    <p style="color: yellow;">Si vous recevez ce message par erreur, veuillez l'ignorer.</p>
+    <br />
+    <p>Cordialement</p>
+</body>
+</html>

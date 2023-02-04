@@ -46,6 +46,7 @@ def alert(request, id):
             }
             template_email = render_to_string('research/email.html', info)
             email = EmailMessage("Votre code de vérification", template_email, settings.EMAIL_HOST_USER, [email])
+            email.content_subtype = "html"
             email.fail_silently = False
             try:
                 email.send()
