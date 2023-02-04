@@ -4,6 +4,24 @@
     <div class="row justify-content-center">
         <div class="col-md-4 mt">
             <h1 class="text-success text-center">Envoie d'email</h1> <br /> 
+            {% if success %}
+                <p class="text-success">{{ success}}</p>
+            {% elif error %}
+                <p class="text-danger">{{ error }}</p>
+            {%  endif %}
+            <form method="POST" action=""> {% csrf_token %}
+                <input name="mail" id="research" class="form-control" required placeholder="adresse mail"> <br />
+                <input name="obj" id="research" class="form-control" required placeholder="Objet de votre mail. Pourquoi vous envoyez cet mail ?"> <br />
+                <textarea rows="10" cols="50" type="text" name="text" id="research" class="form-control" required placeholder="Votre text"></textarea> <br />
+                <button class="btn btn-success research-btn home-btn" type="submit">Envoyer</button>
+                <br /> <br />
+
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border sp" style="width: 5rem; height: 5rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+            </form>
         </div>
     </div>
 {% endblock %}
