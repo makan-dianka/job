@@ -55,7 +55,7 @@ def alert(request, id):
                 log.error(e)
         except Exception as e:
             log.error(e)
-            message = "Oups erreur inconnu. Il se peut que email exist déjà. Éssayer avec un autre email."
+            message = "Oups erreur inconnu! Il se peut que cet email exist déjà. Éssayer avec un autre email."
             context["message"] = message
 
     return render(request, "research/alert.html", context)
